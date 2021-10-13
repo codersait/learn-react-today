@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "./App";
 
 export default function CounterHooks({ initialCount }) {
   console.log('Counter Hooks rendered');
   // const [state, setState] = useState({ count: props.initialCount })
   const [count, setCount] = useState(initialCount)
+  const style = useContext(ThemeContext)
   return (
     <div>
-      <button onClick={() => {
+      <button style={style} onClick={() => {
         // first step asenkron oldugu icin birden fazla calisinca dogru degeri vermez
         // setState({ count: state.count - 1 })
 
@@ -19,7 +21,7 @@ export default function CounterHooks({ initialCount }) {
         -
       </button>
       <span>{count}</span>
-      <button onClick={() => setCount(prevCount => prevCount + 1)}> + </button>
+      <button style={style} onClick={() => setCount(prevCount => prevCount + 1)}> + </button>
     </div>
   )
 }
