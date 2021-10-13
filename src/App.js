@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Counter from "./Counter";
 import CounterHooks from "./CounterHooks";
 export const ThemeContext = React.createContext()
+
 function App() {
   console.log('App Rendered');
   const [theme, setTheme] = useState('red')
